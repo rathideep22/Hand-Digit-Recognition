@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Handwritten Digit Recognition with CNN</title>
+ <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-image: linear-gradient(to bottom, #29323c, #485563); /* Gradient background */
+      color: #fff; /* Light text */
+    }
+
+    /* Header Styling */
+    header {
+      padding: 60px 30px;
+      background-color: rgba(0, 0, 0, 0.8); /* Darker transparent background */
+      border-bottom: 8px solid #47807c; /* Darker blue border */
+      text-align: center;
+      position: relative; /* Positioning for pseudo element */
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #47807c; /* Triangle below header */
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* Button Styling */
+    .button {
+      background-color: #2b6a67; /* Darker green button */
+      border: none;
+      color: #fff; /* White text */
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow */
+    }
+
+    .button:hover {
+      background-color: #1e4947; /* Darker hover color */
+    }
+
+    /* Section Styling */
+    .content {
+      padding: 60px 30px;
+      background-color: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+      margin: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow */
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    /* Image Styling */
+    .section-image {
+      text-align: center;
+      position: relative; /* Positioning for hover effect */
+    }
+
+    .section-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow */
+      transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    .section-image img:hover {
+      transform: scale(1.05); /* Scale up on hover */
+    }
+
+    /* Welcome Statement Styling */
+    .welcome {
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.8); /* Transparent dark welcome section */
+      text-align: center;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow */
+      overflow: hidden; /* Ensure each letter appears individually */
+    }
+
+    .welcome h2,
+    .welcome p {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .welcome h2 {
+      animation-delay: 0.3s; /* Delay for h2 */
+    }
+
+    .welcome p {
+      animation-delay: 0.6s; /* Delay for p */
+    }
+ </style>
+</head>
+<body>
+ <div class="welcome">
+    <h2>Welcome to Handwritten Digit Recognition!</h2>
+    <p>Explore the power of Convolutional Neural Networks (CNNs) in recognizing handwritten digits. Try it now!</p>
+    <a href="index.html" class="button">Try it Now!</a>
+ </div>
+
+ <header>
+    <h1>Handwritten Digit Recognition with CNN</h1>
+    <p>This innovative project utilizes Convolutional Neural Networks (CNNs) to accurately recognize handwritten digits. Upload your image and witness the power of deep learning!</p>
+ </header>
+
+ <section class="content">
+    <div class="section-header">
+      <h2>What is CNN?</h2>
+      <p>Convolutional Neural Networks (CNNs) are a class of deep learning models, primarily used for image processing, classification, and segmentation tasks. They are designed to automatically and adaptively learn spatial hierarchies of features from the input data.</p>
+    </div>
+    <div class="section-image">
+      <img src="cnn-image.jpg" alt="Convolutional Neural Network">
+    </div>
+ </section>
+
+ <section class="content">
+    <div class="section-header">
+      <h2>Handwritten Digit Recognition</h2>
+      <p>Handwritten digit recognition is a task that involves identifying digits from handwritten images. This is a common problem in the field of computer vision and has applications in various domains, including banking, postal services, and more.</p>
+    </div>
+    <div class="section-image">
+      <img src="handwritten-digit-image.jpg" alt="Handwritten Digit">
+    </div>
+ </section>
+
+ <section class="content">
+    <div class="section-header">
+      <h2>Accuracy Measures</h2>
+      <p>The accuracy of handwritten digit recognition models is typically measured using metrics such as accuracy, precision, recall, and the F1 score. These metrics help in understanding the performance of the model in terms of correctly identifying digits and minimizing errors.</p>
+    </div>
+    <div class="section-image">
+      <img src="accracy.jpg" alt="Accuracy Measures">
+    </div>
+ </section>
+</body>
+</html>
